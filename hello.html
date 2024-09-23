@@ -6,13 +6,15 @@
 
         let doIt = ()=>{
         var inpText = document.getElementById("uInput").value;
-        if(Number(inpText) >= 15){
-            alert(" bagges limit exceded")
-        }
+        console.log(inpText);
+            if(Number(inpText) >= 15){
+                console.log("inside if")
+                alert(" bagges limit exceded")
+            }
         }
     </script>
     <body>
-        <input type="input"  id="uInput">
-        <button onclick="doIt">Press Me</button>
+        <input type="number"  id="uInput">
+        <button onclick="doIt()">Press Me</button>
     </body>
 </html>
