@@ -5,6 +5,6 @@ for(var i = 0; i < 1000;i++ ){
     }
 }
 console.log(sum);
-alert('Number is:' + sum);
+alert('Numberrrr is:' + sum);
 
 console.log(sum);
