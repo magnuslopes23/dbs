@@ -21,11 +21,11 @@ let myFunction = (a , b, n) =>{
                 sum += i;
             }
         }
-        console.log(sum);
+     return sum;
 }
-myFunction(3, 5, 10);
 
- alert("By using function "+sum);
+
+ alert("By using function " + myFunction(3, 5, 10));
 
 //  3. Allow the user to enter the parameters via text box(es)
 // and alert them to the output
