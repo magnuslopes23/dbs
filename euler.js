@@ -24,8 +24,9 @@ let myFunction = (a , b, n) =>{
      return sum;
 }
 
+var x = myFunction(3, 5, 10);
 
- alert("By using function " + myFunction(3, 5, 10));
+ alert("By using function " + x);
 
 //  3. Allow the user to enter the parameters via text box(es)
 // and alert them to the output
