@@ -14,7 +14,7 @@
 // 2. Create a function to find the sum of all the multiples of a or b below n.
 // (a,b,n) are function parameters
 
-// var sum = 0;
+var sum = 0;
 let myFunction = (a , b, n) =>{
     for(var i = 0; i < n;i++ ){
             if(i % a ==0 || i % b ==0 ){
