@@ -4,5 +4,5 @@ function calSum(){
 
     var num3 = num1 + num2;
 
-    document.getElementsByClassName("sum").innerHTML = "The Sum is: " + sum;
+    document.getElementsByClassName("sum").innerHTML = "The Sum is: " + num3;
 }
