@@ -36,6 +36,7 @@ var num2 = document.getElementById("num2").value;
 var num3 = document.getElementById("num3").value;
 
 function doIt(){
+    console.log(myFunction(num1, num2, num3));
     alert("By user input  "+ myFunction(num1, num2, num3));
 }
 
