@@ -20,7 +20,7 @@ var sum = 0;
 let myFunc = ( arr, l) =>{
     l.forEach(element => {
        if(element % arr[0] == 0 || element % arr[1] ){
-
+        sum += element;
        }
     });
     return sum;
