@@ -4,7 +4,7 @@ var sum = 0;
 
 let myFunc = ( a, b, l) =>{
     l.forEach(element => {
-        if(a % element ==0 || b% element == 0){
+        if( element % a ==0 ||element % b == 0){
             sum += element;
         }
     });
