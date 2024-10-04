@@ -10,4 +10,4 @@ let myFunc = ( a, b, l) =>{
     });
 }
 
-alert(myFunc(3,5,10));
+alert(myFunc(3,5,[0,1,2,3,4,5,6,7,8,9]));
