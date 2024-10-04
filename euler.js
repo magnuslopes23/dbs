@@ -31,9 +31,9 @@ let myFunction = (a , b, n) =>{
 //  3. Allow the user to enter the parameters via text box(es)
 // and alert them to the output
 
-var num1 = document.getElementById("num1").value;
-var num2 = document.getElementById("num2").value;
-var num3 = document.getElementById("num3").value;
+var num1 = parseInt(document.getElementById("num1").value);
+var num2 = parseInt(document.getElementById("num2").value);
+var num3 = parseInt(document.getElementById("num3").value);
 
 function doIt(){
     console.log(myFunction(num1, num2, num3));
