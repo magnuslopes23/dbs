@@ -15,14 +15,14 @@
 // (a,b,n) are function parameters
 
 // var sum = 0;
-// let myFunction = (a , b, n) =>{
-//     for(var i = 0; i < n;i++ ){
-//             if(i % a ==0 || i % b ==0 ){
-//                 sum += i;
-//             }
-//         }
-//      return sum;
-// }
+let myFunction = (a , b, n) =>{
+    for(var i = 0; i < n;i++ ){
+            if(i % a ==0 || i % b ==0 ){
+                sum += i;
+            }
+        }
+     return sum;
+}
 
 // var x = myFunction(3, 5, 10);
 
@@ -35,4 +35,7 @@ var num1 = document.getElementById("num1").value;
 var num2 = document.getElementById("num2").value;
 var num3 = document.getElementById("num3").value;
 
-alert("By user input  "+ myFunction(num1, num2, num3));
+function doIt(){
+    alert("By user input  "+ myFunction(num1, num2, num3));
+}
+
