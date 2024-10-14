@@ -8,7 +8,7 @@ let basketCost = (basket, price) => {
     return total;
 }
 
-function calTotal () {
+function calculate () {
     let basket = {
         "banana": parseInt(document.getElementById("product1").value), "bread": parseInt(document.getElementById("product2").value), "milk": parseInt(document.getElementById("product3").value),
     }
