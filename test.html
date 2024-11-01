@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #282828;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        .hero {
+            position: relative;
+            background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            width: 200px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .featured-section {
+            padding: 50px;
+            background-color: #1d1d1d;
+            text-align: center;
+        }
+
+        .featured-section h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 40px;
+        }
+
+        .properties {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .property-card {
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .property-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .property-info {
+            margin-top: 10px;
+        }
+
+        .property-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .property-info p {
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+
+        .property-info .price {
+            font-size: 1.2rem;
+            color: #e91e63;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo"><a href="#">Real Estate</a></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Properties</a>
+            <a href="#">Sales</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Featured Properties</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search wherever...">
+            <button>Search</button>
+        </div>
+    </section>
+
+    <!-- Featured Properties Section -->
+    <section class="featured-section">
+        <h2>Home Sales</h2>
+        <div class="properties">
+            <div class="property-card">
+                <img src="path/to/property1.jpg" alt="Property Image">
+                <div class="property-info">
+                    <h3>Sale Properties</h3>
+                    <p>Beautiful family home located in a serene neighborhood.</p>
+                    <div class="price">$299,000</div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="path/to/property2.jpg" alt="Property Image">
+                <div class="property-info">
+                    <h3>Featured Property</h3>
+                    <p>Luxurious property with spacious rooms and modern amenities.</p>
+                    <div class="price">$329,000</div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="path/to/property3.jpg" alt="Property Image">
+                <div class="property-info">
+                    <h3>Sales Property</h3>
+                    <p>Stylish and comfortable, perfect for families.</p>
+                    <div class="price">$310,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
