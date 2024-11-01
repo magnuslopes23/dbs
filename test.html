@@ -15,14 +15,17 @@
             font-family: Arial, sans-serif;
             color: #fff;
             background-color: #282828;
+            overflow-x: hidden;
         }
 
+        /* Navbar Styling */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
             background-color: #333;
+            position: relative;
         }
 
         .navbar a {
@@ -32,10 +35,73 @@
             font-size: 1.1rem;
         }
 
+        .navbar .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hamburger icon for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Hide the navbar links on mobile */
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            /* Navbar */
+            .menu {
+                display: none; /* Hide menu items by default */
+                flex-direction: column;
+                gap: 0;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                width: 100%;
+                left: 0;
+                text-align: center;
+            }
+
+            .menu a {
+                padding: 15px 0;
+                border-top: 1px solid #444;
+            }
+
+            .navbar {
+                flex-direction: row;
+            }
+
+            /* Show hamburger icon */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Toggle menu when hamburger is active */
+            .menu.active {
+                display: flex;
+            }
+        }
+
+        /* Hero Section with Parallax Effect */
         .hero {
             position: relative;
-            background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
+            background-image: url('path/to/your/image.webp'); /* Replace with the actual path to your image */
             background-size: cover;
+            background-attachment: fixed; /* Enables the parallax effect */
             background-position: center;
             height: 500px;
             display: flex;
@@ -43,12 +109,11 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            color: #ffffff;
         }
 
         .hero h1 {
             font-size: 3rem;
-            color: #ffffff;
             margin-bottom: 20px;
         }
 
@@ -85,7 +150,6 @@
 
         .featured-section h2 {
             font-size: 2.5rem;
-            color: #ffffff;
             margin-bottom: 40px;
         }
 
@@ -127,70 +191,22 @@
             font-size: 1.2rem;
             color: #e91e63;
         }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .navbar a {
-                margin: 10px 0;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .search-bar input {
-                width: 100%;
-            }
-
-            .search-bar button {
-                width: 100%;
-                margin-top: 10px;
-            }
-
-            .properties {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .property-card {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .navbar a {
-                font-size: 1rem;
-            }
-
-            .search-bar input, .search-bar button {
-                font-size: 0.9rem;
-            }
-
-            .property-info h3 {
-                font-size: 1.2rem;
-            }
-
-            .featured-section h2 {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <header class="navbar">
         <div class="logo"><a href="#">Real Estate</a></div>
-        <nav>
+        
+        <!-- Hamburger icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <!-- Collapsible menu -->
+        <nav class="menu">
             <a href="#">Home</a>
             <a href="#">Properties</a>
             <a href="#">Sales</a>
@@ -198,7 +214,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Parallax Effect -->
     <section class="hero">
         <h1>Featured Properties</h1>
         <div class="search-bar">
@@ -239,5 +255,12 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
