@@ -263,3 +263,21 @@ function submitBooking(event) {
     closeModal();
     document.getElementById('bookingForm').reset();
 }
+
+
+// Function to search properties
+function searchProperties() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    
+    // Filter properties based on the search query
+    const filteredProperties = propertiesData.filter(property => 
+        property.name.toLowerCase().includes(query) || 
+        property.description.toLowerCase().includes(query)
+    );
+    
+    // Render filtered properties
+    renderProperties(filteredProperties);
+}
+
+// Initial rendering of properties
+renderProperties(propertiesData);
