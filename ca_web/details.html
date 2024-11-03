@@ -5,72 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
     <style>
-        /* Basic styling for details page */
-        body {
+        /* Material 3 Theme Colors */
+        :root {
+            --primary-color: #6200EE;         /* Deep purple */
+            --primary-light: #BB86FC;         /* Light purple */
+            --secondary-color: #03DAC6;       /* Teal */
+            --background-color: #F3E5F5;      /* Soft lavender background */
+            --surface-color: #FFFFFF;         /* White surface */
+            --text-color: #333333;            /* Dark text */
+            --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Base Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #F5F5F5;
-            color: #333;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f5f5, var(--background-color));
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             padding: 20px;
+            color: var(--text-color);
+            min-height: 100vh;
         }
 
+        /* Details Container */
         .details-container {
-            background-color: #FFFFFF;
-            border-radius: 12px;
+            background-color: var(--surface-color);
+            border-radius: 16px;
             padding: 20px;
-            max-width: 600px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
+        .details-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Property Image */
         .details-container img {
             width: 100%;
+            max-height: 400px;
+            object-fit: cover;
             border-radius: 12px;
         }
 
+        /* Property Title */
         .details-container h1 {
-            font-size: 2rem;
-            color: #6200EE;
+            font-size: 2.2rem;
+            color: var(--primary-color);
             margin: 20px 0 10px;
-        }
-
-        .details-container p {
-            margin: 10px 0;
-            line-height: 1.6;
-        }
-
-        .details-container .attribute {
+            text-align: center;
             font-weight: bold;
-            color: #03DAC6;
         }
 
+        /* Property Description */
+        .details-container p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        /* Attributes Section */
+        .attributes-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .attribute-item {
+            background-color: var(--primary-light);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            width: calc(50% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .attribute-item span {
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .attribute-title {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Back Button */
         .back-button {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #6200EE;
-            color: #FFFFFF;
-            border-radius: 20px;
-            text-align: center;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: var(--surface-color);
+            border-radius: 24px;
             text-decoration: none;
             font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
         }
 
         .back-button:hover {
-            background-color: #BB86FC;
+            background-color: var(--primary-light);
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 600px) {
+            .attributes-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .attribute-item {
+                width: 100%;
+            }
+
+            .details-container h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="details-container">
         <img id="propertyImage" src="" alt="Property Image">
-        <h1 id="propertyName"></h1>
-        <p id="propertyDescription"></p>
-        <p><span class="attribute">Origin:</span> <span id="propertyOrigin"></span></p>
-        <p><span class="attribute">Roasted In:</span> <span id="propertyRoastedIn"></span></p>
-        <p><span class="attribute">Type:</span> <span id="propertyType"></span></p>
-        <p><span class="attribute">Caffeinated:</span> <span id="propertyCaffeinated"></span></p>
+        <h1 id="propertyName">Property Name</h1>
+        <p id="propertyDescription">Full description of the property will go here, giving potential buyers more details.</p>
+
+        <!-- Attributes Section -->
+        <div class="attributes-section">
+            <div class="attribute-item">
+                <div class="attribute-title">Origin</div>
+                <span id="propertyOrigin">---</span>
+            </div>
+            <div class="attribute-item">
+                <div class="attribute-title">Roasted In</div>
+                <span id="propertyRoastedIn">---</span>
+            </div>
+            <div class="attribute-item">
+                <div class="attribute-title">Type</div>
+                <span id="propertyType">---</span>
+            </div>
+            <div class="attribute-item">
+                <div class="attribute-title">Caffeinated</div>
+                <span id="propertyCaffeinated">---</span>
+            </div>
+        </div>
+
+        <!-- Back Button -->
         <a href="index.html" class="back-button">Back to Listings</a>
     </div>
 
