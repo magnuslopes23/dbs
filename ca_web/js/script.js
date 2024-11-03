@@ -245,3 +245,21 @@ function viewDetails(propertyId) {
 
 // Call the function to render properties
 renderProperties(propertiesData);
+
+function openModal() {
+    document.getElementById('bookingModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    alert(`Thank you, ${name}! Your viewing has been booked.`);
+    closeModal();
+    document.getElementById('bookingForm').reset();
+}
