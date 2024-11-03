@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <style>
+        /* Basic styling for details page */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F5F5F5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .details-container {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 600px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .details-container img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .details-container h1 {
+            font-size: 2rem;
+            color: #6200EE;
+            margin: 20px 0 10px;
+        }
+
+        .details-container p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .details-container .attribute {
+            font-weight: bold;
+            color: #03DAC6;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6200EE;
+            color: #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background-color: #BB86FC;
+        }
+    </style>
+</head>
+<body>
+    <div class="details-container">
+        <img id="propertyImage" src="" alt="Property Image">
+        <h1 id="propertyName"></h1>
+        <p id="propertyDescription"></p>
+        <p><span class="attribute">Origin:</span> <span id="propertyOrigin"></span></p>
+        <p><span class="attribute">Roasted In:</span> <span id="propertyRoastedIn"></span></p>
+        <p><span class="attribute">Type:</span> <span id="propertyType"></span></p>
+        <p><span class="attribute">Caffeinated:</span> <span id="propertyCaffeinated"></span></p>
+        <a href="index.html" class="back-button">Back to Listings</a>
+    </div>
+
+    <script>
+        // Retrieve the selected property from sessionStorage
+        const selectedProperty = JSON.parse(sessionStorage.getItem('selectedProperty'));
+
+        // Display property details
+        if (selectedProperty) {
+            document.getElementById('propertyImage').src = selectedProperty.featuredMedia;
+            document.getElementById('propertyName').textContent = selectedProperty.name;
+            document.getElementById('propertyDescription').textContent = selectedProperty.description;
+            document.getElementById('propertyOrigin').textContent = selectedProperty.origin;
+            document.getElementById('propertyRoastedIn').textContent = selectedProperty.roastedIn;
+            document.getElementById('propertyType').textContent = selectedProperty.type;
+            document.getElementById('propertyCaffeinated').textContent = selectedProperty.caffinated;
+        }
+    </script>
+</body>
+</html>

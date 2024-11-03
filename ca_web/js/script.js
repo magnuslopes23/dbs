@@ -223,12 +223,24 @@ function renderProperties(data) {
                   <p><strong>Roasted In:</strong> ${property.roastedIn}</p>
                   <p><strong>Type:</strong> ${property.type}</p>
                   <p><strong>Caffeinated:</strong> ${property.caffinated}</p>
+                  <button onclick="viewDetails(${property.id})">View More</button>
               </div>
           `;
 
         // Append card to the container
         propertiesContainer.appendChild(card);
     });
+}
+
+function viewDetails(propertyId) {
+    // Find the property by ID
+    const selectedProperty = propertiesData.find(property => property.id === propertyId);
+    
+    // Store the selected property in sessionStorage
+    sessionStorage.setItem('selectedProperty', JSON.stringify(selectedProperty));
+    
+    // Navigate to details page
+    window.location.href = 'details.html';
 }
 
 // Call the function to render properties
