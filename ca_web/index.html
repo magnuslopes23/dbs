@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo"><a href="#">Real Estate</a></div>
+        
+        <!-- Hamburger icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <!-- Collapsible menu -->
+        <nav class="menu">
+            <a href="#">Home</a>
+            <a href="#">Properties</a>
+            <a href="#">Sales</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Parallax Effect -->
+    <section class="hero">
+        <h1>Featured Properties</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search properties...">
+            <button>Search</button>
+        </div>
+    </section>
+
+    <!-- Featured Properties Section
+    <section class="featured-section">
+        <h2>Properties for Sale</h2>
+        <div class="properties">
+            <div class="property-card">
+                <img src="./img/test.png" alt="Property Image">
+                <div class="property-info">
+                    <h3>Luxury Villa</h3>
+                    <p>Beautiful family home located in a serene neighborhood.</p>
+                    <div class="price">$299,000</div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="./img/test.png" alt="Property Image">
+                <div class="property-info">
+                    <h3>Modern House</h3>
+                    <p>Luxurious property with spacious rooms and modern amenities.</p>
+                    <div class="price">$329,000</div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="./img/test.png" alt="Property Image">
+                <div class="property-info">
+                    <h3>Beachfront Villa</h3>
+                    <p>Stylish and comfortable, perfect for families.</p>
+                    <div class="price">$310,000</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Featured Properties Section -->
+    <section class="featured-section">
+        <h2>Properties for Sale</h2>
+        <div class="properties">
+            <!-- Property cards will be injected here by JavaScript -->
+        </div>
+    </section>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
