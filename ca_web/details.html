@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <!-- <style>
+    <style>
         /* Material 3 Theme Colors */
         :root {
             --primary-color: #6200EE;
@@ -180,7 +179,7 @@
             top: 20px;
             right: 20px;
         }
-    </style> -->
+    </style> 
 </head>
 <body>
     <div class="details-container">
@@ -211,7 +210,7 @@
         <button class="book-button" onclick="openModal()">Book Viewing</button>
     </div>
 
-    <!-- Modal for Booking Form -->
+
     <div class="modal" id="bookingModal">
         <div class="modal-content">
             <button class="close-button" onclick="closeModal()">×</button>
@@ -271,5 +270,65 @@
             document.getElementById('bookingForm').reset();
         }
     </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="details-container">
+        <img id="propertyImage" src="" alt="Property Image">
+        <h1 id="propertyName">Property Name</h1>
+        <p id="propertyDescription">Description of the property.</p>
+
+        <div class="attributes-section">
+            <div class="attribute-item">
+                <span id="propertyOrigin">---</span>
+                <div>Origin</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyRoastedIn">---</span>
+                <div>Roasted In</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyType">---</span>
+                <div>Type</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyCaffeinated">---</span>
+                <div>Caffeinated</div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-button">Back to Listings</a>
+        <button class="book-button" onclick="openModal()">Book Viewing</button>
+    </div>
+
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">×</button>
+            <h2>Book Viewing</h2>
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="details.js"></script>
 </body>
 </html>
