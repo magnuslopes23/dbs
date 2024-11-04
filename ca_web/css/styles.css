@@ -35,10 +35,7 @@ body {
     color: #ff4081;
 }
 
-.menu {
-    display: flex;
-    gap: 20px;
-}
+
 
 /* Hamburger icon for mobile */
 .hamburger {
@@ -62,36 +59,22 @@ body {
     gap: 15px;
 }
 
-/* Overlay for mobile menu */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 5;
-}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    /* Navbar */
     .menu {
-        display: none; /* Hide menu items by default */
+        display: none; /* Hide menu by default on mobile */
         flex-direction: column;
-        gap: 0;
-        background-color: #333;
         position: fixed;
-        top: 0;
+        top: 60px;
         right: 0;
-        width: 250px;
-        height: 100vh;
-        text-align: center;
-        padding-top: 100px;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        z-index: 10;
+        width: 200px;
+        background-color: var(--primary-color);
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px var(--shadow-color);
+        z-index: 11;
     }
 
     .menu a {
@@ -134,10 +117,20 @@ body {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Display overlay when menu is active */
+    /* Show menu when active */
+    .menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Show overlay when menu is open */
     .overlay.active {
         display: block;
     }
+
 }
 
 /* Hero Section with Parallax Effect */
@@ -269,3 +262,9 @@ body {
     color: #e91e63;
     font-weight: bold;
 }
+
+
+
+
+
+

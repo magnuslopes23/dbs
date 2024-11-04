@@ -35,44 +35,48 @@
         <div class="search-bar">
             <input type="text" class="search-input" id="searchInput" placeholder="Search properties..." oninput="searchProperties()">
         </div>
-        <!-- <div class="search-bar">
-            <input type="text" placeholder="Search properties..." oninput="searchProperties()">
-            <button>Search</button>
-        </div> -->
     </section>
 
-    <!-- Featured Properties Section
-    <section class="featured-section">
-        <h2>Properties for Sale</h2>
-        <div class="properties">
-            <div class="property-card">
-                <img src="./img/test.png" alt="Property Image">
-                <div class="property-info">
-                    <h3>Luxury Villa</h3>
-                    <p>Beautiful family home located in a serene neighborhood.</p>
-                    <div class="price">$299,000</div>
-                </div>
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <h2>Filter Properties</h2>
+        <form id="filterForm">
+            <!-- Location Filter -->
+            <div class="filter-group">
+                <label for="locationFilter">Location:</label>
+                <select id="locationFilter" name="location">
+                    <option value="">All Locations</option>
+                    <option value="newyork">New York</option>
+                    <option value="losangeles">Los Angeles</option>
+                    <option value="chicago">Chicago</option>
+                    <!-- Add more options as needed -->
+                </select>
             </div>
 
-            <div class="property-card">
-                <img src="./img/test.png" alt="Property Image">
-                <div class="property-info">
-                    <h3>Modern House</h3>
-                    <p>Luxurious property with spacious rooms and modern amenities.</p>
-                    <div class="price">$329,000</div>
-                </div>
+            <!-- Price Range Filter -->
+            <div class="filter-group">
+                <label for="priceRange">Price Range:</label>
+                <input type="range" id="priceRangeMin" name="priceMin" min="0" max="1000000" step="50000" value="0">
+                <span id="priceMinDisplay">0</span> - 
+                <input type="range" id="priceRangeMax" name="priceMax" min="0" max="1000000" step="50000" value="1000000">
+                <span id="priceMaxDisplay">1,000,000</span>
             </div>
 
-            <div class="property-card">
-                <img src="./img/test.png" alt="Property Image">
-                <div class="property-info">
-                    <h3>Beachfront Villa</h3>
-                    <p>Stylish and comfortable, perfect for families.</p>
-                    <div class="price">$310,000</div>
-                </div>
+            <!-- Date Added Filter -->
+            <div class="filter-group">
+                <label for="dateAdded">Date Added:</label>
+                <select id="dateAdded" name="dateAdded">
+                    <option value="">Anytime</option>
+                    <option value="last7days">Last 7 days</option>
+                    <option value="last30days">Last 30 days</option>
+                    <option value="last90days">Last 90 days</option>
+                </select>
             </div>
-        </div>
-    </section> -->
+
+            <!-- Apply Filters Button -->
+            <button type="button" onclick="applyFilters()">Apply Filters</button>
+        </form>
+    </section>
 
     <!-- Featured Properties Section -->
     <section class="featured-section">

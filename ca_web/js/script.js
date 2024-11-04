@@ -1,11 +1,18 @@
+// function toggleMenu() {
+//     const menu = document.querySelector('.menu');
+//     const overlay = document.querySelector('.overlay');
+//     const hamburger = document.querySelector('.hamburger');
+
+//     menu.classList.toggle('active');
+//     overlay.classList.toggle('active');
+//     hamburger.classList.toggle('active');
+// }
+
 function toggleMenu() {
     const menu = document.querySelector('.menu');
     const overlay = document.querySelector('.overlay');
-    const hamburger = document.querySelector('.hamburger');
-
-    menu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    hamburger.classList.toggle('active');
+    menu.classList.toggle('active'); // Show or hide the menu
+    overlay.classList.toggle('active'); // Show or hide the overlay
 }
 
 const propertiesData = [
