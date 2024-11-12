@@ -1,12 +1,4 @@
-// function toggleMenu() {
-//     const menu = document.querySelector('.menu');
-//     const overlay = document.querySelector('.overlay');
-//     const hamburger = document.querySelector('.hamburger');
 
-//     menu.classList.toggle('active');
-//     overlay.classList.toggle('active');
-//     hamburger.classList.toggle('active');
-// }
 
 function toggleMenu() {
     const menu = document.querySelector('.menu');
@@ -315,7 +307,7 @@ function renderProperties(data) {
       );
       renderProperties(filteredProperties);
   }
-  
+
   // Populate location options dynamically from JSON data
 const locationFilter = document.getElementById("locationFilter");
 const uniqueLocations = [...new Set(propertiesData.map(property => property.location))];
@@ -326,88 +318,36 @@ uniqueLocations.forEach(location => {
     locationFilter.appendChild(option);
 });
 
-// Display range values for price
-const priceRangeMin = document.getElementById("priceRangeMin");
-const priceRangeMax = document.getElementById("priceRangeMax");
+// Display range values for price with a single range slider
+const priceRange = document.getElementById("priceRange");
 const priceMinDisplay = document.getElementById("priceMinDisplay");
 const priceMaxDisplay = document.getElementById("priceMaxDisplay");
 
-priceRangeMin.addEventListener("input", () => {
-    priceMinDisplay.textContent = `€${parseInt(priceRangeMin.value).toLocaleString()}`;
+// Adjust display values for price based on range slider
+priceRange.addEventListener("input", () => {
+    const value = parseInt(priceRange.value);
+    priceMinDisplay.textContent = `€${(value * 0.2).toLocaleString()}`;
+    priceMaxDisplay.textContent = `€${(value).toLocaleString()}`;
 });
 
-priceRangeMax.addEventListener("input", () => {
-    priceMaxDisplay.textContent = `€${parseInt(priceRangeMax.value).toLocaleString()}`;
-});
-
-// Filter properties based on search, location, and price range
+// Filter properties based on location and price range
 function applyFilters() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
     const selectedLocation = locationFilter.value;
-    const minPrice = parseInt(priceRangeMin.value) || 0;
-    const maxPrice = parseInt(priceRangeMax.value) || Infinity;
+    const maxPrice = parseInt(priceRange.value) || 2000000;
 
     const filteredProperties = propertiesData.filter(property => {
-        const matchesSearch = property.name.toLowerCase().includes(query) ||
-                              property.location.toLowerCase().includes(query);
         const matchesLocation = selectedLocation === "" || property.location === selectedLocation;
         const propertyPrice = parseInt(property.price.replace(/[€,]/g, ''));
-        const matchesPrice = propertyPrice >= minPrice && propertyPrice <= maxPrice;
+        const matchesPrice = propertyPrice <= maxPrice;
 
-        return matchesSearch && matchesLocation && matchesPrice;
+        return matchesLocation && matchesPrice;
     });
 
     renderProperties(filteredProperties);
 }
 
-// Event listener for search input
-document.getElementById('searchInput').addEventListener('input', applyFilters);
-locationFilter.addEventListener('change', applyFilters);
-priceRangeMin.addEventListener('input', applyFilters);
-priceRangeMax.addEventListener('input', applyFilters);
+  
 
-// // Function to render properties
-// function renderProperties(data) {
-//     const propertiesContainer = document.querySelector('.properties');
-//     propertiesContainer.innerHTML = ''; // Clear existing content
-
-//     data.forEach(property => {
-//         // Create a card element
-//         const card = document.createElement('div');
-//         card.className = 'property-card';
-
-//         // Card HTML structure
-//         card.innerHTML = `
-//               <img src="${property.featuredMedia}" alt="${property.name}" class="property-image">
-//               <div class="property-info">
-//                   <h3>${property.name}</h3>
-//                   <p>${property.description.substring(0, 100)}...</p>
-//                   <p><strong>Origin:</strong> ${property.origin}</p>
-//                   <p><strong>Roasted In:</strong> ${property.roastedIn}</p>
-//                   <p><strong>Type:</strong> ${property.type}</p>
-//                   <p><strong>Caffeinated:</strong> ${property.caffinated}</p>
-//                   <button onclick="viewDetails(${property.id})">View More</button>
-//               </div>
-//           `;
-
-//         // Append card to the container
-//         propertiesContainer.appendChild(card);
-//     });
-// }
-
-// function viewDetails(propertyId) {
-//     // Find the property by ID
-//     const selectedProperty = propertiesData.find(property => property.id === propertyId);
-    
-//     // Store the selected property in sessionStorage
-//     sessionStorage.setItem('selectedProperty', JSON.stringify(selectedProperty));
-    
-//     // Navigate to details page
-//     window.location.href = 'details.html';
-// }
-
-// // Call the function to render properties
-// renderProperties(propertiesData);
 
 function openModal() {
     document.getElementById('bookingModal').style.display = 'flex';
@@ -428,19 +368,3 @@ function submitBooking(event) {
 }
 
 
-// // Function to search properties
-// function searchProperties() {
-//     const query = document.getElementById('searchInput').value.toLowerCase();
-    
-//     // Filter properties based on the search query
-//     const filteredProperties = propertiesData.filter(property => 
-//         property.name.toLowerCase().includes(query) || 
-//         property.description.toLowerCase().includes(query)
-//     );
-    
-//     // Render filtered properties
-//     renderProperties(filteredProperties);
-// }
-
-// // Initial rendering of properties
-// renderProperties(propertiesData);
