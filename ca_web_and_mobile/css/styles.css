@@ -194,11 +194,25 @@ body {
 }
 
 /* Featured Properties Section */
+/* Apply Parallax Background Effect */
 .featured-section {
+    position: relative;
+    background-image: url('../img/test.png'); /* Use the same image path as the hero section */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     padding: 60px 30px;
-    background: linear-gradient(135deg, #1e1e1e, #333);
     text-align: center;
+    color: #fff;
 }
+
+.properties {
+    backdrop-filter: blur(5px); /* Add slight blur effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for contrast */
+    padding: 20px;
+    border-radius: 10px;
+}
+
 
 .featured-section h2 {
     font-size: 2.5rem;
@@ -208,14 +222,14 @@ body {
     letter-spacing: 1px;
 }
 
-.properties {
+/* .properties {
     display: flex;
     justify-content: space-around;
     gap: 20px;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-}
+} */
 
 /* Property Card Styling */
 .property-card {
