@@ -4,7 +4,7 @@ console.log(selectedProperty);
 
 // Display property details
 if (selectedProperty) {
-    document.getElementById('propertyImage').src = selectedProperty.featuredImage || selectedProperty.featuredMedia;
+    // document.getElementById('propertyImage').src = selectedProperty.featuredImage || selectedProperty.featuredMedia;
     document.getElementById('propertyName').textContent = selectedProperty.name;
     document.getElementById('propertyDescription').textContent = selectedProperty.description;
     document.getElementById('propertyLocation').textContent = selectedProperty.location;
