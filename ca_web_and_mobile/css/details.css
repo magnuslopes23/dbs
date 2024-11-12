@@ -171,14 +171,3 @@
     cursor: pointer;
     border: none;
 }
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .attributes-section {
-        flex-direction: column;
-    }
-
-    .attribute-item {
-        width: 100%;
-    }
-}
