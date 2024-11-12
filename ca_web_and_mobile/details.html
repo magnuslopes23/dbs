@@ -22,39 +22,51 @@
     </header>
 
     <!-- Details Section with Parallax Effect -->
-    <section class="details-container">
-        <div class="content-wrapper">
-            <img id="propertyImage" src="" alt="Property Image">
-            <h1 id="propertyName">Property Name</h1>
-            <p id="propertyDescription">Full description of the property will go here, giving potential buyers more details.</p>
-
-            <div class="attributes-section">
-                <div class="attribute-item">
-                    <span id="propertyLocation">---</span>
-                    <div>Location</div>
+<section class="details-container">
+    <div class="content-wrapper">
+        <!-- Carousel for Property Images -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-images" id="carouselImages">
+                    <!-- Carousel images will be added dynamically by JavaScript -->
                 </div>
-                <div class="attribute-item">
-                    <span id="propertyPrice">---</span>
-                    <div>Price</div>
-                </div>
-                <div class="attribute-item">
-                    <span id="propertyBedrooms">---</span>
-                    <div>Bedrooms</div>
-                </div>
-                <div class="attribute-item">
-                    <span id="propertyBathrooms">---</span>
-                    <div>Bathrooms</div>
-                </div>
-                <div class="attribute-item">
-                    <span id="propertyBER">---</span>
-                    <div>BER Rating</div>
-                </div>
+                <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+                <button class="carousel-button next" onclick="nextSlide()">❯</button>
             </div>
-
-            <a href="index.html" class="back-button">Back to Listings</a>
-            <button class="book-button" onclick="openModal()">Book Viewing</button>
         </div>
-    </section>
+
+        <!-- Property Details -->
+        <h1 id="propertyName">Property Name</h1>
+        <p id="propertyDescription">Full description of the property will go here, giving potential buyers more details.</p>
+
+        <div class="attributes-section">
+            <div class="attribute-item">
+                <span id="propertyLocation">---</span>
+                <div>Location</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyPrice">---</span>
+                <div>Price</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyBedrooms">---</span>
+                <div>Bedrooms</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyBathrooms">---</span>
+                <div>Bathrooms</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyBER">---</span>
+                <div>BER Rating</div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-button">Back to Listings</a>
+        <button class="book-button" onclick="openModal()">Book Viewing</button>
+    </div>
+</section>
+
 
     <!-- Booking Modal -->
     <div class="modal" id="bookingModal">

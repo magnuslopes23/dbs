@@ -12,7 +12,45 @@ if (selectedProperty) {
     document.getElementById('propertyBedrooms').textContent = selectedProperty.bedrooms;
     document.getElementById('propertyBathrooms').textContent = selectedProperty.bathrooms;
     document.getElementById('propertyBER').textContent = selectedProperty.berRating;
+
+     // Initialize the carousel with images
+     const carouselImagesContainer = document.getElementById('carouselImages');
+     selectedProperty.otherMedia.forEach(media => {
+         if (media.type === "image") {
+             const img = document.createElement('img');
+             img.src = media.src;
+             img.alt = selectedProperty.name;
+             carouselImagesContainer.appendChild(img);
+         }
+     });
 }
+
+// Carousel JavaScript
+let currentIndex = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('#carouselImages img');
+    if (index >= slides.length) {
+        currentIndex = 0; // wrap to first image
+    } else if (index < 0) {
+        currentIndex = slides.length - 1; // wrap to last image
+    } else {
+        currentIndex = index;
+    }
+    const offset = -currentIndex * 100;
+    document.getElementById('carouselImages').style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+    showSlide(currentIndex + 1);
+}
+
+function prevSlide() {
+    showSlide(currentIndex - 1);
+}
+
+// Initialize first slide
+showSlide(currentIndex);
 
 // Function to open the modal
 function openModal() {
