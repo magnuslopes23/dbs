@@ -4,213 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
-    <style>
-        /* Material 3 Theme Colors */
-        :root {
-            --primary-color: #6200EE;
-            --primary-light: #BB86FC;
-            --secondary-color: #03DAC6;
-            --background-color: #F3E5F5;
-            --surface-color: #FFFFFF;
-            --text-color: #333333;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f5f5, var(--background-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: var(--text-color);
-            min-height: 100vh;
-        }
-
-        .details-container {
-            background-color: var(--surface-color);
-            border-radius: 16px;
-            padding: 20px;
-            max-width: 800px;
-            width: 100%;
-            box-shadow: 0 8px 16px var(--shadow-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .details-container img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        .details-container h1 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin: 20px 0 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .details-container p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            font-size: 1rem;
-            text-align: justify;
-        }
-
-        .attributes-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .attribute-item {
-            background-color: var(--primary-light);
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 500;
-            width: calc(50% - 10px);
-            text-align: center;
-        }
-
-        .back-button, .book-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: var(--primary-color);
-            color: var(--surface-color);
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .back-button:hover, .book-button:hover {
-            background-color: var(--primary-light);
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .modal-content {
-            background-color: var(--surface-color);
-            padding: 20px;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 8px 16px var(--shadow-color);
-        }
-
-        .modal-content h2 {
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            text-align: center;
-        }
-
-        .modal-content label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: var(--text-color);
-        }
-
-        .modal-content input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .modal-content .submit-button {
-            background-color: var(--primary-color);
-            color: var(--surface-color);
-            padding: 12px;
-            border: none;
-            border-radius: 24px;
-            width: 100%;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .modal-content .submit-button:hover {
-            background-color: var(--primary-light);
-        }
-
-        /* Close Button */
-        .close-button {
-            background-color: var(--primary-light);
-            color: var(--surface-color);
-            padding: 8px;
-            border: none;
-            border-radius: 50%;
-            font-size: 1rem;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-    </style> 
+    <link rel="stylesheet" href="./css/styles.css"> <!-- Assuming your styles are in this CSS file -->
 </head>
 <body>
-    <div class="details-container">
-        <img id="propertyImage" src="" alt="Property Image">
-        <h1 id="propertyName">Property Name</h1>
-        <p id="propertyDescription">Full description of the property will go here, giving potential buyers more details.</p>
-
-        <div class="attributes-section">
-            <div class="attribute-item">
-                <span id="propertyOrigin">---</span>
-                <div>Origin</div>
-            </div>
-            <div class="attribute-item">
-                <span id="propertyRoastedIn">---</span>
-                <div>Roasted In</div>
-            </div>
-            <div class="attribute-item">
-                <span id="propertyType">---</span>
-                <div>Type</div>
-            </div>
-            <div class="attribute-item">
-                <span id="propertyCaffeinated">---</span>
-                <div>Caffeinated</div>
-            </div>
+    <!-- Navbar for Uniform Styling -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="#">
+                <img src="./img/logo.png" alt="Real Estate Logo" width="50" height="50">
+            </a>
         </div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="properties.html">Properties</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
 
-        <a href="index.html" class="back-button">Back to Listings</a>
-        <button class="book-button" onclick="openModal()">Book Viewing</button>
-    </div>
+    <!-- Details Section with Parallax Effect -->
+    <section class="details-container" style="background-image: url('../img/test.png'); background-attachment: fixed; background-size: cover;">
+        <div class="content-wrapper">
+            <img id="propertyImage" src="" alt="Property Image">
+            <h1 id="propertyName">Property Name</h1>
+            <p id="propertyDescription">Full description of the property will go here, giving potential buyers more details.</p>
 
+            <div class="attributes-section">
+                <div class="attribute-item">
+                    <span id="propertyOrigin">---</span>
+                    <div>Origin</div>
+                </div>
+                <div class="attribute-item">
+                    <span id="propertyRoastedIn">---</span>
+                    <div>Roasted In</div>
+                </div>
+                <div class="attribute-item">
+                    <span id="propertyType">---</span>
+                    <div>Type</div>
+                </div>
+                <div class="attribute-item">
+                    <span id="propertyCaffeinated">---</span>
+                    <div>Caffeinated</div>
+                </div>
+            </div>
 
+            <a href="index.html" class="back-button">Back to Listings</a>
+            <button class="book-button" onclick="openModal()">Book Viewing</button>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
     <div class="modal" id="bookingModal">
         <div class="modal-content">
             <button class="close-button" onclick="closeModal()">×</button>
@@ -230,19 +72,20 @@
         </div>
     </div>
 
+    <script src="./js/script.js"></script>
     <script>
         // Retrieve the selected property from sessionStorage
         const selectedProperty = JSON.parse(sessionStorage.getItem('selectedProperty'));
 
         // Display property details
         if (selectedProperty) {
-            document.getElementById('propertyImage').src = selectedProperty.featuredMedia;
+            document.getElementById('propertyImage').src = selectedProperty.featuredImage || selectedProperty.featuredMedia;
             document.getElementById('propertyName').textContent = selectedProperty.name;
             document.getElementById('propertyDescription').textContent = selectedProperty.description;
-            document.getElementById('propertyOrigin').textContent = selectedProperty.origin;
-            document.getElementById('propertyRoastedIn').textContent = selectedProperty.roastedIn;
-            document.getElementById('propertyType').textContent = selectedProperty.type;
-            document.getElementById('propertyCaffeinated').textContent = selectedProperty.caffinated;
+            document.getElementById('propertyOrigin').textContent = selectedProperty.origin || "N/A";
+            document.getElementById('propertyRoastedIn').textContent = selectedProperty.roastedIn || "N/A";
+            document.getElementById('propertyType').textContent = selectedProperty.type || "N/A";
+            document.getElementById('propertyCaffeinated').textContent = selectedProperty.caffeinated || "N/A";
         }
 
         // Function to open the modal
@@ -257,15 +100,12 @@
 
         // Function to handle form submission
         function submitBooking(event) {
-            event.preventDefault(); // Prevent page reload
+            event.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
 
-            // Show confirmation message
             alert(`Thank you, ${name}! Your viewing has been booked. We will contact you at ${email} or ${phone} to confirm.`);
-            
-            // Close modal and reset form
             closeModal();
             document.getElementById('bookingForm').reset();
         }
