@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Details</title>
-    <link rel="stylesheet" href="./css/styles.css"> <!-- Assuming your styles are in this CSS file -->
+    <link rel="stylesheet" href="./css/details.css">
 </head>
 <body>
     <!-- Navbar for Uniform Styling -->
@@ -22,7 +22,7 @@
     </header>
 
     <!-- Details Section with Parallax Effect -->
-    <section class="details-container" style="background-image: url('../img/test.png'); background-attachment: fixed; background-size: cover;">
+    <section class="details-container">
         <div class="content-wrapper">
             <img id="propertyImage" src="" alt="Property Image">
             <h1 id="propertyName">Property Name</h1>
@@ -72,43 +72,6 @@
         </div>
     </div>
 
-    <script src="./js/script.js"></script>
-    <script>
-        // Retrieve the selected property from sessionStorage
-        const selectedProperty = JSON.parse(sessionStorage.getItem('selectedProperty'));
-
-        // Display property details
-        if (selectedProperty) {
-            document.getElementById('propertyImage').src = selectedProperty.featuredImage || selectedProperty.featuredMedia;
-            document.getElementById('propertyName').textContent = selectedProperty.name;
-            document.getElementById('propertyDescription').textContent = selectedProperty.description;
-            document.getElementById('propertyOrigin').textContent = selectedProperty.origin || "N/A";
-            document.getElementById('propertyRoastedIn').textContent = selectedProperty.roastedIn || "N/A";
-            document.getElementById('propertyType').textContent = selectedProperty.type || "N/A";
-            document.getElementById('propertyCaffeinated').textContent = selectedProperty.caffeinated || "N/A";
-        }
-
-        // Function to open the modal
-        function openModal() {
-            document.getElementById('bookingModal').style.display = 'flex';
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            document.getElementById('bookingModal').style.display = 'none';
-        }
-
-        // Function to handle form submission
-        function submitBooking(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-
-            alert(`Thank you, ${name}! Your viewing has been booked. We will contact you at ${email} or ${phone} to confirm.`);
-            closeModal();
-            document.getElementById('bookingForm').reset();
-        }
-    </script>
+    <script src="./js/details.js"></script>
 </body>
 </html>

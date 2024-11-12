@@ -1,0 +1,184 @@
+/* Root Theme Colors */
+:root {
+    --primary-color: #6200EE;
+    --primary-light: #BB86FC;
+    --secondary-color: #03DAC6;
+    --background-color: #F3E5F5;
+    --surface-color: #FFFFFF;
+    --text-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Parallax Background */
+.details-container {
+    position: relative;
+    background-image: url('../img/test.png'); /* Adjust to your image path */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    background: rgba(255, 255, 255, 0.85); /* Light, semi-transparent background */
+    backdrop-filter: blur(10px); /* Blurs background for readability */
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    text-align: center;
+}
+
+/* Property Image */
+.content-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* Property Heading */
+.content-wrapper h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Property Description */
+.content-wrapper p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Attributes Section */
+.attributes-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.attribute-item {
+    background-color: var(--primary-light);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    flex: 1 1 45%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.back-button, .book-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 20px 10px;
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    border-radius: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.back-button:hover, .book-button:hover {
+    background-color: var(--primary-light);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for focus */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border-radius: 24px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-light);
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-light);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .attributes-section {
+        flex-direction: column;
+    }
+
+    .attribute-item {
+        width: 100%;
+    }
+}
