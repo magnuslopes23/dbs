@@ -1,5 +1,6 @@
 // Retrieve the selected property from sessionStorage
 const selectedProperty = JSON.parse(sessionStorage.getItem('selectedProperty'));
+console.log(selectedProperty);
 
 // Display property details
 if (selectedProperty) {
