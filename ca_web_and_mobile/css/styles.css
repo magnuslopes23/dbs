@@ -300,3 +300,96 @@ body {
     margin-right: 5px;
     color: #e57373;
 }
+
+/* Filter Section Styling */
+.filter-section {
+    padding: 40px 20px;
+    background-color: #333;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 20px auto;
+    color: #fff;
+}
+
+.filter-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+#filterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: bold;
+    color: #ffb3d9;
+}
+
+.filter-group select,
+.filter-group input[type="range"],
+.filter-group input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #444;
+    color: #fff;
+}
+
+.price-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#priceMinDisplay,
+#priceMaxDisplay {
+    font-weight: bold;
+    color: #ff80ab;
+}
+
+.apply-filters {
+    background-color: #ff4081;
+    color: #fff;
+    padding: 12px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.apply-filters:hover {
+    background-color: #e91e63;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #filterForm {
+        flex-direction: column;
+    }
+
+    .price-range {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .apply-filters {
+        width: 100%;
+        padding: 10px;
+    }
+}
+

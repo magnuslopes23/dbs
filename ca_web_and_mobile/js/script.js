@@ -316,6 +316,55 @@ function renderProperties(data) {
       renderProperties(filteredProperties);
   }
   
+  // Populate location options dynamically from JSON data
+const locationFilter = document.getElementById("locationFilter");
+const uniqueLocations = [...new Set(propertiesData.map(property => property.location))];
+uniqueLocations.forEach(location => {
+    const option = document.createElement("option");
+    option.value = location;
+    option.text = location;
+    locationFilter.appendChild(option);
+});
+
+// Display range values for price
+const priceRangeMin = document.getElementById("priceRangeMin");
+const priceRangeMax = document.getElementById("priceRangeMax");
+const priceMinDisplay = document.getElementById("priceMinDisplay");
+const priceMaxDisplay = document.getElementById("priceMaxDisplay");
+
+priceRangeMin.addEventListener("input", () => {
+    priceMinDisplay.textContent = `€${parseInt(priceRangeMin.value).toLocaleString()}`;
+});
+
+priceRangeMax.addEventListener("input", () => {
+    priceMaxDisplay.textContent = `€${parseInt(priceRangeMax.value).toLocaleString()}`;
+});
+
+// Filter properties based on search, location, and price range
+function applyFilters() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const selectedLocation = locationFilter.value;
+    const minPrice = parseInt(priceRangeMin.value) || 0;
+    const maxPrice = parseInt(priceRangeMax.value) || Infinity;
+
+    const filteredProperties = propertiesData.filter(property => {
+        const matchesSearch = property.name.toLowerCase().includes(query) ||
+                              property.location.toLowerCase().includes(query);
+        const matchesLocation = selectedLocation === "" || property.location === selectedLocation;
+        const propertyPrice = parseInt(property.price.replace(/[€,]/g, ''));
+        const matchesPrice = propertyPrice >= minPrice && propertyPrice <= maxPrice;
+
+        return matchesSearch && matchesLocation && matchesPrice;
+    });
+
+    renderProperties(filteredProperties);
+}
+
+// Event listener for search input
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+locationFilter.addEventListener('change', applyFilters);
+priceRangeMin.addEventListener('input', applyFilters);
+priceRangeMax.addEventListener('input', applyFilters);
 
 // // Function to render properties
 // function renderProperties(data) {
