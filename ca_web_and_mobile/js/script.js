@@ -210,48 +210,96 @@ const propertiesData = [
     }
 ];
 
-// Function to render properties
-function renderProperties(data) {
-    const propertiesContainer = document.querySelector('.properties');
-    propertiesContainer.innerHTML = ''; // Clear existing content
-
-    data.forEach(property => {
-        // Create a card element
-        const card = document.createElement('div');
-        card.className = 'property-card';
-
-        // Card HTML structure
-        card.innerHTML = `
-              <img src="${property.featuredMedia}" alt="${property.name}" class="property-image">
+  
+  // Function to render properties
+  function renderProperties(data) {
+      const propertiesContainer = document.querySelector('.properties');
+      propertiesContainer.innerHTML = ''; // Clear existing content
+  
+      data.forEach(property => {
+          const card = document.createElement('div');
+          card.className = 'property-card';
+  
+          // Card HTML structure with updated fields
+          card.innerHTML = `
+              <img src="${property.featuredImage}" alt="${property.name}" class="property-image">
               <div class="property-info">
                   <h3>${property.name}</h3>
                   <p>${property.description.substring(0, 100)}...</p>
-                  <p><strong>Origin:</strong> ${property.origin}</p>
-                  <p><strong>Roasted In:</strong> ${property.roastedIn}</p>
-                  <p><strong>Type:</strong> ${property.type}</p>
-                  <p><strong>Caffeinated:</strong> ${property.caffinated}</p>
+                  <p><strong>Location:</strong> ${property.location}</p>
+                  <p><strong>Price:</strong> ${property.price}</p>
+                  <p><strong>BER Rating:</strong> ${property.berRating}</p>
+                  <p><strong>Bedrooms:</strong> ${property.bedrooms}</p>
+                  <p><strong>Bathrooms:</strong> ${property.bathrooms}</p>
                   <button onclick="viewDetails(${property.id})">View More</button>
               </div>
           `;
+          
+          propertiesContainer.appendChild(card);
+      });
+  }
+  
+  function viewDetails(propertyId) {
+      const selectedProperty = propertiesData.find(property => property.id === propertyId);
+      sessionStorage.setItem('selectedProperty', JSON.stringify(selectedProperty));
+      window.location.href = 'details.html';
+  }
+  
+  // Initialize with full property data
+  renderProperties(propertiesData);
+  
+  function searchProperties() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filteredProperties = propertiesData.filter(property =>
+          property.name.toLowerCase().includes(query) ||
+          property.location.toLowerCase().includes(query)
+      );
+      renderProperties(filteredProperties);
+  }
+  
 
-        // Append card to the container
-        propertiesContainer.appendChild(card);
-    });
-}
+// // Function to render properties
+// function renderProperties(data) {
+//     const propertiesContainer = document.querySelector('.properties');
+//     propertiesContainer.innerHTML = ''; // Clear existing content
 
-function viewDetails(propertyId) {
-    // Find the property by ID
-    const selectedProperty = propertiesData.find(property => property.id === propertyId);
+//     data.forEach(property => {
+//         // Create a card element
+//         const card = document.createElement('div');
+//         card.className = 'property-card';
+
+//         // Card HTML structure
+//         card.innerHTML = `
+//               <img src="${property.featuredMedia}" alt="${property.name}" class="property-image">
+//               <div class="property-info">
+//                   <h3>${property.name}</h3>
+//                   <p>${property.description.substring(0, 100)}...</p>
+//                   <p><strong>Origin:</strong> ${property.origin}</p>
+//                   <p><strong>Roasted In:</strong> ${property.roastedIn}</p>
+//                   <p><strong>Type:</strong> ${property.type}</p>
+//                   <p><strong>Caffeinated:</strong> ${property.caffinated}</p>
+//                   <button onclick="viewDetails(${property.id})">View More</button>
+//               </div>
+//           `;
+
+//         // Append card to the container
+//         propertiesContainer.appendChild(card);
+//     });
+// }
+
+// function viewDetails(propertyId) {
+//     // Find the property by ID
+//     const selectedProperty = propertiesData.find(property => property.id === propertyId);
     
-    // Store the selected property in sessionStorage
-    sessionStorage.setItem('selectedProperty', JSON.stringify(selectedProperty));
+//     // Store the selected property in sessionStorage
+//     sessionStorage.setItem('selectedProperty', JSON.stringify(selectedProperty));
     
-    // Navigate to details page
-    window.location.href = 'details.html';
-}
+//     // Navigate to details page
+//     window.location.href = 'details.html';
+// }
 
-// Call the function to render properties
-renderProperties(propertiesData);
+// // Call the function to render properties
+// renderProperties(propertiesData);
 
 function openModal() {
     document.getElementById('bookingModal').style.display = 'flex';
@@ -272,19 +320,19 @@ function submitBooking(event) {
 }
 
 
-// Function to search properties
-function searchProperties() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
+// // Function to search properties
+// function searchProperties() {
+//     const query = document.getElementById('searchInput').value.toLowerCase();
     
-    // Filter properties based on the search query
-    const filteredProperties = propertiesData.filter(property => 
-        property.name.toLowerCase().includes(query) || 
-        property.description.toLowerCase().includes(query)
-    );
+//     // Filter properties based on the search query
+//     const filteredProperties = propertiesData.filter(property => 
+//         property.name.toLowerCase().includes(query) || 
+//         property.description.toLowerCase().includes(query)
+//     );
     
-    // Render filtered properties
-    renderProperties(filteredProperties);
-}
+//     // Render filtered properties
+//     renderProperties(filteredProperties);
+// }
 
-// Initial rendering of properties
-renderProperties(propertiesData);
+// // Initial rendering of properties
+// renderProperties(propertiesData);
