@@ -268,33 +268,36 @@ const propertiesData =[
 
   
   // Function to render properties
-  function renderProperties(data) {
-      const propertiesContainer = document.querySelector('.properties');
-      propertiesContainer.innerHTML = ''; // Clear existing content
-  
-      data.forEach(property => {
-          const card = document.createElement('div');
-          card.className = 'property-card';
-  
-          // Card HTML structure with updated fields
-          card.innerHTML = `
-              <img src="${property.featuredImage}" alt="${property.name}" class="property-image">
-              <div class="property-info">
-                  <h3>${property.name}</h3>
-                  <p>${property.description.substring(0, 100)}...</p>
-                  <p><strong>Location:</strong> ${property.location}</p>
-                  <p><strong>Price:</strong> ${property.price}</p>
-                  <p><strong>BER Rating:</strong> ${property.berRating}</p>
-                  <p><strong>Bedrooms:</strong> ${property.bedrooms}</p>
-                  <p><strong>Bathrooms:</strong> ${property.bathrooms}</p>
-                  <button onclick="viewDetails(${property.id})">View More</button>
-              </div>
-          `;
-          
-          propertiesContainer.appendChild(card);
-      });
-  }
-  
+// Function to render properties
+function renderProperties(data) {
+    const propertiesContainer = document.querySelector('.properties');
+    propertiesContainer.innerHTML = ''; // Clear existing content
+
+    data.forEach(property => {
+        const card = document.createElement('div');
+        card.className = 'property-card';
+
+        // Set onclick event to navigate to details page
+        card.onclick = () => viewDetails(property.id);
+
+        // Card HTML structure with updated fields
+        card.innerHTML = `
+            <img src="${property.featuredImage}" alt="${property.name}" class="property-image">
+            <div class="property-info">
+                <h3>${property.name}</h3>
+                <p>${property.description.substring(0, 100)}...</p>
+                <p><strong>Location:</strong> ${property.location}</p>
+                <p><strong>Price:</strong> ${property.price}</p>
+                <p><strong>BER Rating:</strong> ${property.berRating}</p>
+                <p><strong>Bedrooms:</strong> ${property.bedrooms}</p>
+                <p><strong>Bathrooms:</strong> ${property.bathrooms}</p>
+            </div>
+        `;
+        
+        propertiesContainer.appendChild(card);
+    });
+}
+
   function viewDetails(propertyId) {
       const selectedProperty = propertiesData.find(property => property.id === propertyId);
       sessionStorage.setItem('selectedProperty', JSON.stringify(selectedProperty));
