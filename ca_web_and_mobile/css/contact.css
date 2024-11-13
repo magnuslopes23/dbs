@@ -69,6 +69,7 @@ button:hover {
 
 
 /* Navbar Styling */
+/* Base Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -94,21 +95,14 @@ button:hover {
     color: #ff4081;
 }
 
-/* Navbar Logo Styling */
 .logo img {
     height: 50px;
     width: auto;
     transition: transform 0.3s ease;
 }
 
-.logo a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
 .logo img:hover {
-    transform: scale(1.1); /* Slight zoom effect */
+    transform: scale(1.1);
 }
 
 /* Hamburger icon for mobile */
@@ -131,6 +125,7 @@ button:hover {
 .menu {
     display: flex;
     gap: 15px;
+    transition: all 0.3s ease;
 }
 
 /* Responsive Navbar Styles */
@@ -147,6 +142,12 @@ button:hover {
         border-radius: 8px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
         z-index: 11;
+        transform: translateX(100%); /* Hide off screen */
+    }
+
+    .menu.active {
+        display: flex;
+        transform: translateX(0); /* Slide-in effect */
     }
 
     .menu a {
@@ -170,12 +171,6 @@ button:hover {
         display: flex;
     }
 
-    /* Menu active state */
-    .menu.active {
-        display: flex;
-    }
-
-    /* Transform hamburger into an 'X' */
     .hamburger.active div:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -186,8 +181,20 @@ button:hover {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Overlay for mobile menu */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
     .overlay.active {
         display: block;
     }
 }
+

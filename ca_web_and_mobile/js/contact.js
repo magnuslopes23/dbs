@@ -11,3 +11,17 @@ function handleSubmit(event) {
     // Optionally, clear the form fields after submission
     document.getElementById('contactForm').reset();
 }
+
+// JavaScript for toggling menu and overlay
+document.querySelector('.hamburger').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.menu').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+});
+
+// Close menu when overlay is clicked
+document.querySelector('.overlay').addEventListener('click', function() {
+    document.querySelector('.hamburger').classList.remove('active');
+    document.querySelector('.menu').classList.remove('active');
+    this.classList.remove('active');
+});
