@@ -55,11 +55,15 @@ showSlide(currentIndex);
 // Function to open the modal
 function openModal() {
     document.getElementById('bookingModal').style.display = 'flex';
+    // jQuery for animation
+    $('#bookingModal').fadeIn(500);
 }
 
 // Function to close the modal
 function closeModal() {
     document.getElementById('bookingModal').style.display = 'none';
+    //jQuery for animation
+    $('#bookingModal').fadeOut(500);
 }
 
 // Function to handle form submission
