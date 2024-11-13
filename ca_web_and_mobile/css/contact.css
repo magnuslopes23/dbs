@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f4f9;
+}
+
+.contact-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contact-container h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-container p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #6200EE;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4a00b0;
+}
+
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: linear-gradient(135deg, #333, #222);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: #ff4081;
+}
+
+/* Navbar Logo Styling */
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Hamburger icon for mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Menu for mobile */
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* Responsive Navbar Styles */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background-color: #333;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        z-index: 11;
+    }
+
+    .menu a {
+        padding: 15px 0;
+        font-size: 1.2rem;
+        border-top: 1px solid #444;
+        display: block;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover {
+        background-color: #444;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Menu active state */
+    .menu.active {
+        display: flex;
+    }
+
+    /* Transform hamburger into an 'X' */
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Overlay for mobile menu */
+    .overlay.active {
+        display: block;
+    }
+}
