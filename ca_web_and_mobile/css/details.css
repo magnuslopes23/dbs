@@ -186,7 +186,7 @@
 }
 
 /* Attributes Section */
-.attributes-section {
+/* .attributes-section {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -203,10 +203,10 @@
     flex: 1 1 45%;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Buttons */
-.back-button, .book-button {
+/* .back-button, .book-button {
     display: inline-block;
     padding: 12px 24px;
     margin: 20px 10px;
@@ -221,6 +221,48 @@
 
 .back-button:hover, .book-button:hover {
     background-color: var(--primary-light);
+} */
+
+.attributes-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.attributes-section.compact .attribute-item {
+    flex: 1 1 calc(50% - 10px);
+    background-color: #d3b3ff;
+    color: #4b0082;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.back-button, .book-button {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    background-color: #4b0082;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-button:hover, .book-button:hover {
+    background-color: #663399;
 }
 
 /* Modal Styles */
