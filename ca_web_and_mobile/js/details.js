@@ -52,19 +52,19 @@ function prevSlide() {
 // Initialize first slide
 showSlide(currentIndex);
 
-// Function to open the modal
+// Function to open the modal with slide-in effect
 function openModal() {
-    document.getElementById('bookingModal').style.display = 'flex';
-    // jQuery for animation
-    $('#bookingModal').fadeIn(500);
+    $('#bookingModal').css({ display: 'block', right: '-100%' }); // Start offscreen
+    $('#bookingModal').animate({ right: '10%' }, 500); // Slide to 10% from the right
 }
 
-// Function to close the modal
+// Function to close the modal with slide-out effect
 function closeModal() {
-    document.getElementById('bookingModal').style.display = 'none';
-    //jQuery for animation
-    $('#bookingModal').fadeOut(500);
+    $('#bookingModal').animate({ right: '-100%' }, 500, function() {
+        $(this).css({ display: 'none' }); // Hide the modal after animation
+    });
 }
+
 
 // Function to handle form submission
 function submitBooking(event) {
