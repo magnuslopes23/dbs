@@ -1,135 +1,278 @@
+/* Root Theme Colors */
 :root {
     --primary-color: #6200EE;
+    --primary-light: #BB86FC;
     --secondary-color: #03DAC6;
-    --text-color: #333;
     --background-color: #F3E5F5;
+    --surface-color: #FFFFFF;
+    --text-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
 }
 
-body {
-    background-color: #f7f7f7;
-}
 
-/* Navbar */
+/* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background: #333;
-    color: #f0f0f0;
+    padding: 15px 50px;
+    background: linear-gradient(135deg, #333, #222);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.menu a {
+.navbar a {
     color: #f0f0f0;
     text-decoration: none;
+    font-size: 1rem;
     margin: 0 15px;
+    transition: color 0.3s ease;
+    font-weight: 500;
 }
 
-/* Details Container */
-.details-container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.navbar a:hover {
+    color: #ff4081;
 }
 
-/* Carousel */
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 15px;
+/* Navbar Logo Styling */
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
 }
 
-.carousel {
+.logo a {
     display: flex;
-    transition: transform 0.4s ease;
+    align-items: center;
+    text-decoration: none;
 }
 
-.carousel img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
+.logo img:hover {
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 10px;
+/* Hamburger icon for mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* Property Info */
-.property-info h1 {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin: 10px 0;
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
 }
 
-.property-info p {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    margin-bottom: 15px;
+/* Menu for mobile */
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* Responsive Navbar Styles */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background-color: #333;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        z-index: 11;
+    }
+
+    .menu a {
+        padding: 15px 0;
+        font-size: 1.2rem;
+        border-top: 1px solid #444;
+        display: block;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover {
+        background-color: #444;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Menu active state */
+    .menu.active {
+        display: flex;
+    }
+
+    /* Transform hamburger into an 'X' */
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Overlay for mobile menu */
+    .overlay.active {
+        display: block;
+    }
+}
+
+/* Parallax Background */
+.details-container {
+    position: relative;
+    background-image: url('../img/test.png'); /* Adjust to your image path */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    background: rgba(255, 255, 255, 0.85); /* Light, semi-transparent background */
+    backdrop-filter: blur(10px); /* Blurs background for readability */
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 8px 16px var(--shadow-color);
     text-align: center;
 }
 
+/* Property Image */
+.content-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* Property Heading */
+.content-wrapper h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Property Description */
+.content-wrapper p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
 /* Attributes Section */
+/* .attributes-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.attribute-item {
+    background-color: var(--primary-light);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    flex: 1 1 45%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* Buttons */
+/* .back-button, .book-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 20px 10px;
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    border-radius: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.back-button:hover, .book-button:hover {
+    background-color: var(--primary-light);
+} */
+
 .attributes-section {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    justify-content: center;
-    margin: 15px 0;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
-.attribute-item {
+.attributes-section.compact .attribute-item {
     flex: 1 1 calc(50% - 10px);
-    background: #e0e0e0;
-    padding: 10px;
-    border-radius: 8px;
+    background-color: #d3b3ff;
+    color: #4b0082;
+    padding: 8px;
+    border-radius: 6px;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Buttons */
 .buttons {
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .back-button, .book-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: var(--primary-color);
-    color: #fff;
+    flex: 1;
+    padding: 10px;
+    font-size: 0.9rem;
     border-radius: 20px;
+    background-color: #4b0082;
+    color: #fff;
     text-align: center;
     cursor: pointer;
     text-decoration: none;
 }
 
-.book-button {
-    background: var(--secondary-color);
+.back-button:hover, .book-button:hover {
+    background-color: #663399;
 }
 
-/* Modal */
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -137,27 +280,144 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for focus */
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .modal-content {
-    background: #fff;
+    background-color: var(--surface-color);
     padding: 20px;
-    border-radius: 8px;
-    width: 300px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 16px var(--shadow-color);
     text-align: center;
 }
 
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border-radius: 24px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-light);
+}
+
+/* Close Button */
 .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: var(--primary-color);
+    background: var(--primary-light);
     color: #fff;
-    font-size: 1rem;
-    border: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
     border-radius: 50%;
     cursor: pointer;
+    border: none;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-images img {
+    min-width: 100%;
+    border-radius: 10px;
+}
+
+/* Carousel Buttons */
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-images img {
+    min-width: 100%;
+    border-radius: 10px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/details.css">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar for Uniform Styling -->
     <header class="navbar">
         <div class="logo">
             <a href="#">
@@ -21,38 +21,55 @@
         </nav>
     </header>
 
-    <!-- Details Section -->
-    <section class="details-container">
-        <!-- Carousel -->
+    <!-- Details Section with Parallax Effect -->
+<section class="details-container">
+    <div class="content-wrapper">
+        <!-- Carousel for Property Images -->
         <div class="carousel-container">
-            <div class="carousel" id="carouselImages">
-                <!-- Carousel images will be dynamically inserted here -->
+            <div class="carousel">
+                <div class="carousel-images" id="carouselImages">
+                    <!-- Carousel images will be added dynamically by JavaScript -->
+                </div>
+                <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+                <button class="carousel-button next" onclick="nextSlide()">❯</button>
             </div>
-            <button class="carousel-button prev" onclick="prevSlide()">❮</button>
-            <button class="carousel-button next" onclick="nextSlide()">❯</button>
         </div>
 
-        <!-- Property Info -->
-        <div class="property-info">
-            <h1 id="propertyName">Property Name</h1>
-            <p id="propertyDescription">Description of the property...</p>
+        <!-- Property Details -->
+        <h1 id="propertyName">Property Name</h1>
+        <p id="propertyDescription">Description of the property...</p>
+
+        <div class="attributes-section compact">
+            <div class="attribute-item">
+                <span id="propertyLocation">---</span>
+                <div>Location</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyPrice">---</span>
+                <div>Price</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyBedrooms">---</span>
+                <div>Bedrooms</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyBathrooms">---</span>
+                <div>Bathrooms</div>
+            </div>
+            <div class="attribute-item">
+                <span id="propertyBER">---</span>
+                <div>BER Rating</div>
+            </div>
         </div>
 
-        <!-- Attributes Section -->
-        <div class="attributes-section">
-            <div class="attribute-item"><span id="propertyLocation">---</span><div>Location</div></div>
-            <div class="attribute-item"><span id="propertyPrice">---</span><div>Price</div></div>
-            <div class="attribute-item"><span id="propertyBedrooms">---</span><div>Bedrooms</div></div>
-            <div class="attribute-item"><span id="propertyBathrooms">---</span><div>Bathrooms</div></div>
-            <div class="attribute-item"><span id="propertyBER">---</span><div>BER Rating</div></div>
-        </div>
-
-        <!-- Action Buttons -->
         <div class="buttons">
             <a href="index.html" class="back-button">Back to Listings</a>
             <button class="book-button" onclick="openModal()">Book Viewing</button>
         </div>
-    </section>
+    </div>
+</section>
+
+
 
     <!-- Booking Modal -->
     <div class="modal" id="bookingModal">
