@@ -13,7 +13,7 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="logo">
-            <a href="#">
+            <a href="./index.html">
                 <img src="./img/logo.png" alt="Real Estate Logo" width="50" height="50">
             </a>
         </div>
@@ -27,8 +27,8 @@
 
         <!-- Collapsible menu -->
         <nav class="menu">
-            <a href="#">Home</a>
-            <a href="#">Properties</a>
+            <a href="./index.html">Home</a>
+            <a href="#featured-section">Properties</a>
             <a href="#">Contact Us</a>
         </nav>
     </header>
@@ -41,7 +41,7 @@
     </section>
     
     <!-- Properties Section -->
-    <section class="featured-section">
+    <section class="featured-section" id="featured-section">
         <h2>Properties for Sale</h2>
         <!-- Filter Section -->
     <section class="filter-section">
@@ -64,9 +64,10 @@
                     <span id="priceMaxDisplay">€2,000,000</span>
                 </div>
             </div>
-
-            <div class="search-bar">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search properties..." oninput="searchProperties()">
+            <div class="filter-group">
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search properties..." oninput="searchProperties()">
+                </div>
             </div>
 
             <!-- Apply Filters Button -->
