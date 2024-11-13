@@ -145,6 +145,7 @@
 .details-container {
     position: relative;
     /* background-image: url('../img/test.png'); Adjust to your image path */
+    background: linear-gradient(135deg, #1e1e1e, #333);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
