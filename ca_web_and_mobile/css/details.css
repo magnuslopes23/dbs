@@ -1,15 +1,10 @@
-/* Root Theme Colors */
 :root {
     --primary-color: #6200EE;
-    --primary-light: #BB86FC;
     --secondary-color: #03DAC6;
+    --text-color: #333;
     --background-color: #F3E5F5;
-    --surface-color: #FFFFFF;
-    --text-color: #333333;
-    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Reset and Global Styling */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,86 +13,67 @@
 }
 
 body {
-    color: var(--text-color);
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    background-color: #f7f7f7;
 }
 
-/* Navbar Styling */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background: linear-gradient(135deg, #333, #222);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    width: 100%;
+    background: #333;
+    color: #f0f0f0;
 }
 
-.navbar a {
+.menu a {
     color: #f0f0f0;
     text-decoration: none;
-    font-size: 1rem;
     margin: 0 15px;
 }
 
-.logo img {
-    height: 40px;
-}
-
-/* Details Section */
+/* Details Container */
 .details-container {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: 20px auto;
     padding: 20px;
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Carousel Styling */
+/* Carousel */
 .carousel-container {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.carousel-images {
+.carousel {
     display: flex;
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease;
 }
 
-.carousel-images img {
-    min-width: 100%;
+.carousel img {
+    width: 100%;
     height: 300px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
     border: none;
     padding: 10px;
     cursor: pointer;
 }
 
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
 
 /* Property Info */
 .property-info h1 {
@@ -110,7 +86,7 @@ body {
     font-size: 0.9rem;
     color: var(--text-color);
     margin-bottom: 15px;
-    text-align: justify;
+    text-align: center;
 }
 
 /* Attributes Section */
@@ -118,15 +94,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    justify-content: space-between;
-    margin-top: 10px;
+    justify-content: center;
+    margin: 15px 0;
 }
 
 .attribute-item {
     flex: 1 1 calc(50% - 10px);
-    background-color: var(--primary-light);
-    color: #fff;
-    padding: 8px;
+    background: #e0e0e0;
+    padding: 10px;
     border-radius: 8px;
     text-align: center;
     font-size: 0.85rem;
@@ -135,27 +110,26 @@ body {
 /* Buttons */
 .buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
 .back-button, .book-button {
-    flex: 1;
-    padding: 10px;
-    font-size: 0.9rem;
-    background-color: var(--primary-color);
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: var(--primary-color);
     color: #fff;
     border-radius: 20px;
     text-align: center;
     cursor: pointer;
-    margin: 0 5px;
+    text-decoration: none;
 }
 
-.back-button:hover, .book-button:hover {
-    background-color: var(--primary-light);
+.book-button {
+    background: var(--secondary-color);
 }
 
-/* Modal Styling */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -163,25 +137,27 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background-color: var(--surface-color);
+    background: #fff;
     padding: 20px;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 400px;
+    border-radius: 8px;
+    width: 300px;
     text-align: center;
 }
 
-.submit-button {
-    background-color: var(--primary-color);
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
     color: #fff;
-    padding: 10px;
-    border-radius: 24px;
-    width: 100%;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
 }
